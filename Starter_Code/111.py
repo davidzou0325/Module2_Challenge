@@ -1,10 +1,16 @@
-def save_qualifying_loans(qualifying_loans):
-    """Saves the qualifying loans to a CSV file.
+import questionary
 
-    Args:
-        qualifying_loans (list of lists): The qualifying bank loans.
+def save_qualifying_loans():
     """
-    csvpath = ('qualifying_loan_list.csv')
-    with open (csvpath, 'w', newline='') as csvfile:
-        csvwriter = csv.writer(csvfile)
-        csvwriter.writerows(qualifying_loans)
+    Prompt dialog to ask user if they want to save the qualifying loans information
+
+    """
+    answer = questionary.confirm('Would you like to save your qualifying loans in a csv file?').ask()
+    message = "Sure!"
+
+    if answer == True:
+        message = "Your data is saved in qualifying_loan_list.csv, please check it."
+        
+    print (message)
+
+save_qualifying_loans()

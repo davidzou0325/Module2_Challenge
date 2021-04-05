@@ -46,4 +46,4 @@ def save_csv(qualifying_loans):
     with open (csvpath, 'w', newline='') as csvfile:
         csvwriter = csv.writer(csvfile)
         csvwriter.writerows(qualifying_loans)
-    
+    return csvpath
