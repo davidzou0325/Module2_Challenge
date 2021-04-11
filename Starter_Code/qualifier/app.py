@@ -107,35 +107,44 @@ def save_qualifying_loans():
     Prompt dialog to ask user if they want to save the qualifying loans information
 
     """
-    
+    # qualifying_loans = find_qualifying_loans
+
+    bank_data = load_bank_data()
+
+    credit_score, debt, income, loan_amount, home_value = get_applicant_info()
+
+    qualifying_loans = find_qualifying_loans(
+        bank_data, credit_score, debt, income, loan_amount, home_value
+    )
+
+    answer = questionary.confirm('Would you like to save your qualifying loans in a csv file?').ask()
+
+    if answer == True:
+        message = "Your data is saved in qualifying_loan_list.csv, please check it."
+        
+        
+        save_csv(qualifying_loans)
+    else:
+        sys.exit('Sure, your data will not be saved.')
+        
+    print (message)
 
 
 def run():
     """The main function for running the script."""
 
     # Load the latest Bank data
-    bank_data = load_bank_data()
+    # bank_data = load_bank_data()
 
     # Get the applicant's information
-    credit_score, debt, income, loan_amount, home_value = get_applicant_info()
+    # credit_score, debt, income, loan_amount, home_value = get_applicant_info()
 
     # Find qualifying loans
-    qualifying_loans = find_qualifying_loans(
-        bank_data, credit_score, debt, income, loan_amount, home_value
-    )
+    
 
     # Save qualifying loans
-    answer = questionary.confirm('Would you like to save your qualifying loans in a csv file?').ask()
 
-    if answer == True:
-        message = "Your data is saved in qualifying_loan_list.csv, please check it."
-        save_csv(qualifying_loans)
-    else:
-        sys.exit('Sure, your data will not be saved.')
-        
-    print (message)
-    
-    save_csv(qualifying_loans)
+    save_qualifying_loans()
 
 
 if __name__ == "__main__":
