@@ -5,6 +5,7 @@ This contains a helper function for loading and saving CSV files.
 
 """
 import csv
+import questionary
 from pathlib import Path
 
 
@@ -31,7 +32,7 @@ def load_csv(csvpath):
     return data
 
 def save_csv(qualifying_loans):
-    """Load the qualified loans data into new CSV file.
+    """Save the qualified loans data into new CSV file.
 
     Args:
         save_csv (list of lists): the qualifying bank loans
@@ -40,8 +41,9 @@ def save_csv(qualifying_loans):
         A list of lists that contains the rows of qualified loans data
 
     """
-    # set the desinated file name
-    csvpath = ('qualifying_loan_list.csv')
+    # set the desinated file path and name
+    answer = questionary.path("What's the path to save this csv file?").ask()
+    csvpath = (answer + 'qualifying_loan_list.csv')
     # write the CSV file 
     with open (csvpath, 'w', newline='') as csvfile:
         csvwriter = csv.writer(csvfile)
