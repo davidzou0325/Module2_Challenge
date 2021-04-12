@@ -37,4 +37,4 @@ def test_filters():
     loan_to_value_ratio = 0.84
 
     # @TODO: Test the new save_csv code!
-    # YOUR CODE HERE!
+    assert fileio.load_csv(Path('./data/daily_rate_sheet.csv'))

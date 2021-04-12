@@ -1,13 +1,11 @@
 # Project Title
 
-Just after the title, introduce your project by describing attractively what the project is about and what is the main problem that inspires you to create this project or what is the main contribution for the potential user of your project.
-
+This function is a easily used by people who has no coding experience, finance experience and trying to find a qualified loan. Based on integrated CLI (Command-Line Interface), we can simply type in informations, like credit score, monthly income, monthly debt and so on, and find a qualified banks that provide loans based on typed in informations. After getting a result, we can also direct where we want to save the data as a CSV file. Therefore, we can have a direct result with banks' informations in it.
 ---
 
 ## Technologies
 
-Describe the technologies required to use your project such as programming languages, libraries, frameworks, and operating systems. Be sure to include the specific versions of any critical dependencies that you have used in the stable version of your project.
-
+This function requires Python coding language, include 'questionary', 'csv', 'sys', and 'Path' libraries. In the main coding file 'app.py', it includes integrated CLI to get people's basic information, calculation code, and save file function. In the sub-folder qualifier, it includes main function to calculate the input informations that typed in, load bank data from daily_rate_sheet.csv, and save filtered bank data through a CLI which can direct saving path. 
 ---
 
 ## Installation Guide
